@@ -1,0 +1,9 @@
+ScriptSig:
+  0 <A.Signature> <C.Signature>
+    or
+  0 <A.Signature> <B.Signature>
+    or
+  0 <B.Signature> <C.Signature>
+
+ScriptPubkey:
+  OP_2 <A.Pubkey> <B.Pubkey> <C.Pubkey> OP_3 OP_CHECKMULTISIG
