@@ -1,0 +1,14 @@
+ScriptSig:
+  <Carol.Signature> <Carol.Pubkey> <Bob.Signature> <Bob.Pubkey> <Alice.Signature> <Alice.Pubkey>
+    or
+  <X.Signature> <X.Pubkey> <Bob.Signature> <Bob.Pubkey> <Alice.Signature> <Alice.Pubkey>
+    or
+  <Carol.Signature> <Carol.Pubkey> <X.Signature> <X.Pubkey> <Alice.Signature> <Alice.Pubkey>
+    or
+  <Carol.Signature> <Carol.Pubkey> <Bob.Signature> <Bob.Pubkey> <X.Signature> <X.Pubkey>
+
+ScriptPubkey:
+  OP_DUP OP_HASH160 <Alice.PubkeyHash> OP_EQUAL OP_IF OP_CHECKSIG OP_ELSE OP_2DROP OP_FALSE OP_ENDIF OP_ROT OP_ROT
+  OP_DUP OP_HASH160 <Bob.PubkeyHash>   OP_EQUAL OP_IF OP_CHECKSIG OP_ELSE OP_2DROP OP_FALSE OP_ENDIF OP_2SWAP
+  OP_DUP OP_HASH160 <Carol.PubkeyHash> OP_EQUAL OP_IF OP_CHECKSIG OP_ELSE OP_2DROP OP_FALSE OP_ENDIF
+  OP_ADD OP_ADD OP_1 OP_GREATERTHAN
